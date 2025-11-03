@@ -1,12 +1,23 @@
 import pandas as pd
 
-dataFile = pd.read.csv("figuras.csv")
+from funciones import triangulo, rectangulo, circulo
 
-print("Procesando figuras ...\n")
+
+dataFile = pd.read_csv("figuras.csv")
+
+print('Procesando figuras ...\n')
 
 areas = []
-perimetros = []
+
 
 for index, row in dataFile.iterrows():
-	print(f"Fila{index}: FIGURA={row['FIGURA']}, Medida1={row['MEDIDA1']}, Medida2={row['MEDIDA2']}")
 
+    if row['FIGURA'] == 't':
+        area = triangulo(row['MEDIDA1'], row['MEDIDA2'])
+        print(area)
+    elif row['FIGURA'] == 'r':
+        area = rectangulo(row['MEDIDA1'], row['MEDIDA2'])
+        print(area)
+    elif row['FIGURA'] == 'r':
+        area = circulo(row['MEDIDA1'])    
+        print(area)
